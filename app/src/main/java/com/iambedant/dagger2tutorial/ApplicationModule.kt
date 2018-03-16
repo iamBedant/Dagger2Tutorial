@@ -1,6 +1,5 @@
 package com.iambedant.dagger2tutorial
 
-import android.content.Context
 import dagger.Module
 import dagger.Provides
 
@@ -14,4 +13,5 @@ class ApplicationModule {
     fun provideCustomObject(): ACustomObject {
         return ACustomObject()
     }
+
 }
