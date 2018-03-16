@@ -8,7 +8,6 @@ import javax.inject.Inject;
 
 public class AComplexCustomObject{
 
-    @Inject
     public AComplexCustomObject(ACustomObject customObject) {
     }
 }

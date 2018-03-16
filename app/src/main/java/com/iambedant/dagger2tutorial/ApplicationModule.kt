@@ -1,5 +1,6 @@
 package com.iambedant.dagger2tutorial
 
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 
@@ -14,4 +15,12 @@ class ApplicationModule {
         return ACustomObject()
     }
 
+    /**
+     * You do this If you don't have access to the constructor of AComplexCustomObject class. Because in
+     * that case you wont be able to add @Inject to the constructor.
+     */
+    @Provides
+    fun provideComplexCustomObject(customObject: ACustomObject): AComplexCustomObject{
+        return AComplexCustomObject(customObject)
+    }
 }
