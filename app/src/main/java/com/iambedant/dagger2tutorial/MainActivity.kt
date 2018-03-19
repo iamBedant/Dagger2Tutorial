@@ -17,6 +17,9 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var complexCustomObject: AComplexCustomObject
 
+    @Inject
+    lateinit var ordinaryImplementation: AnOrdinaryInterface
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,6 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         if (context != null)
             Timber.d("Context Injected succesfully")
+
+        ordinaryImplementation.printMe()
 
     }
 }
