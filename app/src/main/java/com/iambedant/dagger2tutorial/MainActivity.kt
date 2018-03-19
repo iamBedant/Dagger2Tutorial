@@ -20,14 +20,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        DaggerApplicationComponent.builder().applicationModule(ApplicationModule(application)).build().inject(this)
+        DaggerApplicationComponent.builder().application(application).build().inject(this)
         if (customObject != null)
             Timber.d("Custom Object Injected succesfully")
 
         if (complexCustomObject != null)
             Timber.d("Complex Custom Object Injected succesfully")
 
-        if(context!=null)
+        if (context != null)
             Timber.d("Context Injected succesfully")
 
     }
