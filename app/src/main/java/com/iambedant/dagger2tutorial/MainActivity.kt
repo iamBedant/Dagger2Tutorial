@@ -10,11 +10,17 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var customObject: ACustomObject
 
+    @Inject
+    lateinit var complexCustomObject: AComplexCustomObject
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         DaggerApplicationComponent.builder().build().inject(this)
         if (customObject != null)
-            Timber.d("Object Injected succesfully")
+            Timber.d("Custom Object Injected succesfully")
+
+        if (complexCustomObject != null)
+            Timber.d("Complex Custom Object Injected succesfully")
     }
 }
