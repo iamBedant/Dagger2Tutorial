@@ -19,7 +19,7 @@ interface ApplicationComponent {
         fun build(): ApplicationComponent
 
         @BindsInstance
-        fun application(applocation: Application): Builder
+        fun application(application: Application): Builder
 
     }
 }
