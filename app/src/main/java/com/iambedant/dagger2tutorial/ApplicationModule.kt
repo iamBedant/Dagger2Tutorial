@@ -1,14 +1,24 @@
 package com.iambedant.dagger2tutorial
 
+import android.app.Application
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 /**
  * Created by kuliza-233 on 15/03/18.
  */
 @Module
-class ApplicationModule {
+class ApplicationModule(application: Application) {
+
+    private val application = application
+
+    @Singleton
+    @Provides
+    fun provideContext(): Context {
+        return application
+    }
 
     @Provides
     fun provideCustomObject(): ACustomObject {
@@ -20,7 +30,7 @@ class ApplicationModule {
      * that case you wont be able to add @Inject to the constructor.
      */
     @Provides
-    fun provideComplexCustomObject(customObject: ACustomObject): AComplexCustomObject{
+    fun provideComplexCustomObject(customObject: ACustomObject): AComplexCustomObject {
         return AComplexCustomObject(customObject)
     }
 }
